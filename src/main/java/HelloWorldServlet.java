@@ -30,7 +30,7 @@ public class HelloWorldServlet extends HttpServlet {
             out.println("</body></html>");
         }else if(userSaid2.equals("counter")){
             counter = 0;
-            out.printf("<h1>Hello, %s</h1>",userSaid);
+            out.printf("<h1>You restarted the counter</h1>");
             out.printf("<h1>" + title + "</h1>\n" + counter + "</h2>\n");
 
         }else
