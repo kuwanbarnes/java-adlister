@@ -12,6 +12,8 @@
 <html lang ="en">
 <head>
     <title>My First Java Server Page</title>
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 
@@ -28,6 +30,6 @@ View the page source!
 <%-- this is a JSP comment, you will *not* see this in the html --%>
 
 <!-- this is an HTML comment, you *will* see this in the html -->
-
+<script src ="js/main.js"></script>
 </body>
 </html>
