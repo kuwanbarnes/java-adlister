@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet(name = "correctServlet", urlPatterns = "/guess")
+@WebServlet(name = "correctServlet", urlPatterns = "/correct")
 public class correctServlet   extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int userGuess = Integer.parseInt(request.getParameter("userGuess"));

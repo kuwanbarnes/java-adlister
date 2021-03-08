@@ -9,7 +9,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Pizza Form</title>
 
 </head>
 <body>
@@ -35,20 +35,29 @@
         <option value="bbq">BBQ Sauce</option>
     </select>
 </div>
+    <div>
+        <label for="pizza_size">Choose a size:</label>
+        <select name="pizza_size" id="pizza_size">
+            <option value="">--Please choose an option--</option>
+            <option value="small">small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+    </div>
     <p>Choose your toppings:</p>
 
     <div>
-        <input type="checkbox" id="pepperoni" name="pepperoni" value="pepperoni">
-        <label for="pepperoni">Pepperoni</label>
+        <label for="pepperoni">Pepperoni</label><input type="checkbox" id="pepperoni" name="toppings" value="pepperoni">
+
     </div>
 
     <div>
-        <input type="checkbox" id="ham" name="ham" value="ham">
-        <label for="ham">Ham</label>
+        <label for="ham">Ham</label><input type="checkbox" id="ham" name="toppings" value="ham">
+
     </div>
     <div>
-        <input type="checkbox" id="beef" name="beef" value="beef">
-        <label for="beef">Beef</label>
+        <label for="beef">Beef</label><input type="checkbox" id="beef" name="toppings" value="beef">
+
     </div>
 
     <label for="Address">Delivery Address:</label>
