@@ -1,4 +1,4 @@
-<jsp:useBean id="favColor" scope="request" />
+
 <%--
   Created by IntelliJ IDEA.
   User: bama
@@ -11,7 +11,7 @@
 <head>
     <title>Title</title>
 <style type="text/css">
-    body { background: ${favColor};
+    body { background: ${userColor};
 
     }
 </style>

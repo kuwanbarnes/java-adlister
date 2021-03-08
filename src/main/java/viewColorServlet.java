@@ -9,13 +9,20 @@ import java.io.IOException;
 @WebServlet(name = "viewColorServlet", urlPatterns = "/viewcolor")
 public class viewColorServlet  extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String name = request.getParameter("name");
-        request.setAttribute("name", name);
+
 //        request.setAttribute("name", request.getParameter("name"));  // The same but different.
+        String color = request.getParameter("userColor");
+        request.setAttribute("userColor",color);
+        System.out.println(request.getParameter("userColor"));
         request.getRequestDispatcher("view-color.jsp").forward(request, response);
-        String crust = request.getParameter("crust");
-        request.setAttribute("crust",crust);
-        System.out.println(request.getParameter("crust"));
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+//        request.setAttribute("name", request.getParameter("name"));  // The same but different.
+        String color = request.getParameter("userColor");
+        request.setAttribute("userColor",color);
+        System.out.println(request.getParameter("userColor"));
+        request.getRequestDispatcher("view-color.jsp").forward(request, response);
     }
 
 }

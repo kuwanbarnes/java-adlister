@@ -14,7 +14,10 @@
 </head>
 <body>
 <form method="post" action="/pickcolor">
-    <input>
+    <label for="userColor">Pick your favorite color</label>
+
+    <input type="text" id="userColor" name="userColor" required
+           maxlength="80" size="10">
 
 </form>
 </body>

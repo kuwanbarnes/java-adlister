@@ -9,10 +9,10 @@ import javax.servlet.ServletException;
 @WebServlet(name = "pickcolorServlet", urlPatterns = "/pickcolor")
 public class pickcolorServlet   extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String userColor = request.getParameter("color");
-        request.setAttribute("color", userColor);
+        String userColor = request.getParameter("Usercolor");
+        request.setAttribute("userColor", userColor);
 //        request.setAttribute("name", request.getParameter("name"));  // The same but different.
-        System.out.println(request.getParameter("color"));
+        System.out.println(request.getParameter("userColor"));
         request.getRequestDispatcher("pick-color.jsp").forward(request, response);
 
 
@@ -20,11 +20,11 @@ public class pickcolorServlet   extends HttpServlet {
     protected void doPost (HttpServletRequest request, HttpServletResponse response) throws
             IOException, ServletException {
         String userColor = request.getParameter("userColor");
-        request.setAttribute("color", userColor);
+        request.setAttribute("userColor", userColor);
 //        request.setAttribute("name", request.getParameter("name"));  // The same but different.
-        System.out.println(request.getParameter("color"));
+        System.out.println(request.getParameter("userColor"));
 
-        response.sendRedirect("/viewcolor");
+        request.getRequestDispatcher("viewcolor").forward(request, response);
 
     }
 }
