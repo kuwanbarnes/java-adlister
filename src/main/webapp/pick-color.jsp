@@ -9,7 +9,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Pick Color</title>
 
 </head>
 <body>
@@ -18,7 +18,8 @@
 
     <input type="text" id="userColor" name="userColor" required
            maxlength="80" size="10">
-
+    <br>
+<input type="submit" value="Pick Color">
 </form>
 </body>
 </html>

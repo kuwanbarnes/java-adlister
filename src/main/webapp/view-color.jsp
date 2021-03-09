@@ -17,6 +17,6 @@
 </style>
 </head>
 <body>
-<h1>hello</h1>
+<h1>hello, your favorite color is ${userColor}</h1>
 </body>
 </html>
