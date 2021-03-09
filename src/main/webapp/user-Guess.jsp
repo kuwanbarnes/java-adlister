@@ -11,11 +11,11 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post" action="guess">
+<form method="post" action="${pageContext.request.contextPath}/guess">
     <label for="userGuess">Guess number between 1-3</label>
 
     <input type="text" id="userGuess" name="userGuess" required
-           maxlength="1" size="10">
+           maxlength="3" size="10">
 <button type="submit">Submit</button>
 </form>
 </body>

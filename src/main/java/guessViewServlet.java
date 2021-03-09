@@ -8,29 +8,28 @@ import java.io.IOException;
 
 @WebServlet(name = "guessViewServlet", urlPatterns = "/guess")
 public class guessViewServlet   extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        int userGuess = Integer.parseInt(request.getParameter("userGuess"));
-        request.setAttribute("userGuess", userGuess);
 //        request.setAttribute("name", request.getParameter("name"));  // The same but different.
-        System.out.println(request.getParameter("userGuess"));
+
         request.getRequestDispatcher("user-Guess.jsp").forward(request, response);
 
-
     }
-
+@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             IOException, ServletException {
         int userGuess = Integer.parseInt(request.getParameter("userGuess"));
+int randomnum =(int)(Math.round(Math.random()*2)+1);
+if (userGuess == randomnum){
+    request.getRequestDispatcher("/correct").forward(request, response);
+}else{
+    request.getRequestDispatcher("/incorrect").forward(request, response);
 
-        request.setAttribute("userGuess", userGuess);
 //        request.setAttribute("name", request.getParameter("name"));  // The same but different.
-        System.out.println(request.getParameter("userGuess"));
 
-        if (userGuess == 2) {
-            request.getRequestDispatcher("correct").forward(request, response);
 
-        }else{
-            request.getRequestDispatcher("incorrect").forward(request, response);
+
+
         }
     }
 }

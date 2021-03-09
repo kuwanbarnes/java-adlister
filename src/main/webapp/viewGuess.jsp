@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<c:if test="$"
 <h1>${userGuess}</h1>
 </body>
 </html>
