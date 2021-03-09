@@ -5,12 +5,12 @@ public class Album {
     private String artist;
     private String name;
     private int release_date;
-    private double sales;
+    private float sales;
     private String genre;
 
     public Album() {};
 
-    public Album(int id, String artist, String name, int release_date, double sales, String genre){
+    public Album(int id, String artist, String name, int release_date, float sales, String genre){
         this.id=id;
         this.artist=artist;
         this.name=name;
@@ -55,7 +55,7 @@ public class Album {
         return sales;
     }
 
-    public void setSales(double sales) {
+    public void setSales(float sales) {
         this.sales = sales;
     }
 

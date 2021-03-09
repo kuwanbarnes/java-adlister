@@ -3,13 +3,13 @@ package beans;
 public class quotes {
     private int id;
     private String content;
-    private String author;
+    private author author_id;
 
-    public quotes(){};
-    public quotes(int id, String content, String author){
+    public quotes(){}
+    public quotes(int id, String content, author author_id){
         this.id=id;
         this.content=content;
-        this.author= author;
+        this.author_id= author_id;
     }
 
     public int getId() {
@@ -28,11 +28,11 @@ public class quotes {
         this.content = content;
     }
 
-    public String getAuthor() {
-        return author;
+    public author getAuthor() {
+        return author_id;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthor(author author_id) {
+        this.author_id = author_id;
     }
 }

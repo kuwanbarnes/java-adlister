@@ -4,6 +4,8 @@ import beans.author;
 import beans.Album;
 import java.util.ArrayList;
 import java.util.List;
+
+
 public class BeanTest {
 
 
@@ -17,14 +19,35 @@ public class BeanTest {
 //        mybook.setPrice(300F);
 //        mybook.setBooksSold(1000000);
 
+        List<Album> AlbumList = new ArrayList() {
+        };
+        Album album1 = new Album(1,"Prince","Purple Rain",1984,25F,"Pop");
+        AlbumList.add(album1);
+        System.out.println("Here is a list of the Albums!");
+        for (Album currentAlbum : AlbumList) {
+            System.out.println(currentAlbum.getArtist() + ", " + currentAlbum.getName()+ ","+ currentAlbum.getRelease_date());
+        }
 
+
+        List<author> authorsList = new ArrayList() {
+        };
+        author author1 = new author();
+        author1.setFirstname("james");
+        author1.setLastname("brown");
+        authorsList.add(author1);
+        System.out.println("Here is a list of the authors!");
+        for (author currentAuthor : authorsList) {
+            System.out.println(currentAuthor.getLastname() + ", " + currentAuthor.getFirstname());
+        }
+
+
+
+
+
+        quotes quoteOne = new quotes(1,"its a man's world",author1);
+        quotes quoteTwo = new quotes(2,"jump back gotta kiss myself",new author(1,"james","brown"));
         List<quotes> quotesList = new ArrayList() {
         };
-
-
-
-        quotes quoteOne = new quotes(1,"hello world","codeUp");
-        quotes quoteTwo = new quotes(2,"goodbye world","codeDown");
 quotesList.add(quoteOne);
 quotesList.add(quoteTwo);
 //        Person instructorTwo = new Person("David","Stephens");
@@ -32,19 +55,15 @@ quotesList.add(quoteTwo);
 
 
 
-        System.out.println("Here is a list of the instructors!");
+        System.out.println("Here is a list of the quotes!");
         for (quotes currentQuote : quotesList) {
-            System.out.println(currentQuote.getContent() + ", " + currentQuote.getAuthor());
+            System.out.println(currentQuote.getContent());
+            System.out.println( "~"+currentQuote.getAuthor().getFirstname()+","+currentQuote.getAuthor().getLastname());
+
         }
 
-        List<Album> AlbumList = new ArrayList() {
-        };
-Album album1 = new Album(1,"Prince","Purple Rain",1984-6-25,25000000,"Pop");
- AlbumList.add(album1);
-        System.out.println("Here is a list of the Albums!");
-        for (Album currentAlbum : AlbumList) {
-            System.out.println(currentAlbum.getArtist() + ", " + currentAlbum.getName());
-        }
+
+
 
     }
 }
