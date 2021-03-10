@@ -7,13 +7,15 @@
 <body>
 <h1>Here are all the ads:</h1>
 
-<c:forEach var="ad" items="${adList}">
+<c:forEach var="ad" items="${adList}" >
 
 
     <div class="ad">
         <h2>${ad.getTitle()}</h2>
-        <p> ${ad.getDescription()}</p>
+        <p>ID: ${ad.id}</p>
+        <p>Description: ${ad.getDescription()}</p>
     </div>
+    <br>
 </c:forEach>
 
 </body>
