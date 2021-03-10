@@ -11,7 +11,7 @@
 
 
     <div class="ad">
-        <h1>${ad.getTitle()}</h1>
+        <h2>${ad.getTitle()}</h2>
         <p> ${ad.getDescription()}</p>
     </div>
 </c:forEach>
