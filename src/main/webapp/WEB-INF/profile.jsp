@@ -11,6 +11,6 @@
     <div class="container">
         <h1>Welcome to your profile, ${user}.</h1>
     </div>
-<a href="/login">log out</a>
+<a href="/logout">log out</a>
 </body>
 </html>
