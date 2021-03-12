@@ -36,7 +36,7 @@ public class JDBCDemo {
 
             //statement.executeUpdate("INSERT INTO albums (artist, name, release_date, genre, sales) VALUES('Nelly Furtado', 'Loose', 2006, 'Dance-pop, hip hop, R&B', 12.5)");
 
-            statement.executeUpdate("update albums set sales = 1 where id =" + 31);
+            statement.executeUpdate("update albums set name ='Supernatural..(not the tv show)'  where id =" + 31);
 
             statement.execute("delete from  albums where id in (33, 34, 35);");
 
@@ -52,7 +52,7 @@ public class JDBCDemo {
                         rs.getFloat("sales"),
                         rs.getString("genre")
                 ));
-            }
+            }              4r
 
             printAlbums(albums);
 
@@ -66,7 +66,8 @@ public class JDBCDemo {
         for (Album album: albums) {
             System.out.println("printAlbums:\n"+"album.getId() = " + album.getId());
             System.out.println("album.getArtist() = " + album.getArtist());
-            System.out.println("album.getName() = " + album.getName()+"\n");
+            System.out.println("album.getName() = " + album.getName());
+            System.out.println("album.getSales() = " + album.getSales()+"\n");
         }
     }
 }
