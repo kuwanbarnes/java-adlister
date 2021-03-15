@@ -1,10 +1,13 @@
 package com.codeup.adlister.models;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class User {
     private long id;
     private String username;
     private String email;
     private String password;
+    String hashPass = BCrypt.hashpw(password,BCrypt.gensalt());
 
     public User() {}
 
