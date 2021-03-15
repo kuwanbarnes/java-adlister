@@ -12,8 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="<c:url value="/register"/>">
-
+<form action="/register" method="POST">
 
     <label>
         <input id ="username" name="username" placeholder="username" type="text">
