@@ -7,21 +7,20 @@ public class User {
     private String username;
     private String email;
     private String password;
-    String hashPass = BCrypt.hashpw(password,BCrypt.gensalt());
 
     public User() {}
 
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
-        this.password = password;
+        setPassword(password);
     }
 
     public User(long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
-        this.password = password;
+       this.password= password;
     }
 
     public long getId() {
@@ -53,6 +52,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        String hashPass = BCrypt.hashpw(password,BCrypt.gensalt());
+        this.password = hashPass;
     }
 }
