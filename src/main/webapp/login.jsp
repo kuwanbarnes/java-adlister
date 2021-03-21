@@ -8,7 +8,7 @@
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">
-        <h1>Please Log In</h1>
+        <h1>Please Login</h1>
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
