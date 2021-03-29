@@ -1,0 +1,14 @@
+.jumbotron{
+    width: auto;
+}
+header{
+    background-image: url("../img/pizza.png");
+}
+h1{
+    background-color: black;
+    text-align: center;
+opacity: .5;
+    font-weight: 400;
+}
+
+#c
