@@ -1,8 +1,9 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
-import com.codeup.adlister.models.User;
+
 import org.mindrot.jbcrypt.BCrypt;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,10 +31,12 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+
         String hashedPassedInDb =user.getPassword();
         System.out.println(hashedPassedInDb);
         boolean validAttempt = BCrypt.checkpw(password,hashedPassedInDb);
         System.out.println(validAttempt);
+
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
