@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,6 +7,7 @@
     </jsp:include>
 </head>
 <body>
+
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <h1>Please Login</h1>
@@ -21,5 +23,6 @@
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
+
 </body>
 </html>
