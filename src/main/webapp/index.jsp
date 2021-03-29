@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: bama
@@ -32,3 +33,5 @@
 <script src ="js/main.js"></script>
 </body>
 </html>
+
+
