@@ -3,18 +3,24 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
+import javax.servlet.jsp.jstl.core.Config;
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
-    private Connection connection = null;
+
+    private Connection connection;
+
 
     public MySQLUsersDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
+
                     config.getUrl(),
                     config.getUser(),
                     config.getPassword()
+
+
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -26,9 +32,10 @@ public class MySQLUsersDao implements Users {
     public User findByUsername(String username) {
         String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
         try {
-            PreparedStatement stmt = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, username);
-            ResultSet rs =stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();
             rs.next();
             return new User(
                     rs.getLong("id"),
@@ -40,6 +47,20 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error creating a new user.", e);
         }
     }
+
+
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setString(1, username);
+        return extractUser(stmt.executeQuery());
+    } catch(
+    SQLException e)
+
+    {
+        throw new RuntimeException("Error finding a user by username", e);
+    }
+
+
+
 
 
     @Override
@@ -55,20 +76,24 @@ public class MySQLUsersDao implements Users {
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new user", e);
+
+
+            throw new RuntimeException("Error creating new user", e);
+
         }
     }
 
-    private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
-            return null;
+    private User extractUser(ResultSet rs) throws SQLException{
+        if(!rs.next()){
+        return null;
         }
         return new User(
-                rs.getLong("id"),
-                rs.getString("username"),
-                rs.getString("email"),
-                rs.getString("password")
-        );
-    }
 
-}
+        rs.getLong("id"),
+        rs.getString("username"),
+        rs.getString("email"),
+        rs.getString("password")
+        );
+        }
+        }
+

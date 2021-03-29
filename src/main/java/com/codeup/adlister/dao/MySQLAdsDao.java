@@ -3,6 +3,7 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
+import javax.servlet.jsp.jstl.core.Config;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,6 +54,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
+
     private String createInsertQuery(Ad ad) {
         try {
             String insert = "INSERT INTO ads(user_id, title, description) VALUES (?,?,?)";
@@ -67,6 +69,43 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("error", e);
         }
+
+    @Override
+    public List<Ad> search(String term){
+        String sql = "SELECT * FROM ads WHERE title  LIKE ? ";
+        String searchTermWithWildcards = "%" + term + "%";
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, searchTermWithWildcards);
+
+            ResultSet rs = stmt.executeQuery();
+            return generateAds(rs);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Ad> deleteAd(Ad ad) {
+
+        String sql = "DELETE FROM ads WHERE id =?";
+        String deletead = "%" + ad + "%";
+try {
+    PreparedStatement statement = connection.prepareStatement(sql);
+    statement.setString(1, deletead);
+
+    int rowsDeleted = statement.executeUpdate();
+    if (rowsDeleted > 0) {
+        System.out.println("A user was deleted successfully!");
+    }
+}catch (SQLException throwables){
+    throwables.printStackTrace();
+}
+        return null;
+    }
+
 
     }
     private Ad extractAd(ResultSet rs) throws SQLException {
@@ -85,4 +124,18 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    private List<Ad> generateAds(ResultSet rs) throws SQLException {
+        List<Ad> ads = new ArrayList<>();
+        while (rs.next()){
+            ads.add(new Ad(
+                    rs.getLong("id"),
+                    rs.getLong("user_id"),
+                    rs.getString("title"),
+                    rs.getString("description")
+            ));
+        }
+        return ads;
+    }
+
 }
