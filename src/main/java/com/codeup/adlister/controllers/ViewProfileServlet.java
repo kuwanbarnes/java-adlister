@@ -1,3 +1,5 @@
+package com.codeup.adlister.controllers;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,9 +9,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ViewProfileServlet", urlPatterns = "/profile")
+@WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD:src/main/java/ViewProfileServlet.java
         HttpSession session = request.getSession();
         if(session.getAttribute("user")!= null){
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
@@ -18,5 +21,12 @@ public class ViewProfileServlet extends HttpServlet {
         }
 
 
+=======
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/login");
+            return;
+        }
+        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+>>>>>>> main:src/main/java/com/codeup/adlister/controllers/ViewProfileServlet.java
     }
 }
